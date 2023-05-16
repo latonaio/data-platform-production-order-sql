@@ -14,6 +14,6 @@ CREATE TABLE `data_platform_production_order_header_doc_data`
     CONSTRAINT `DataPlatformProductionOrderHeaderDocData_fk` FOREIGN KEY (`ProductionOrder`) REFERENCES `data_platform_production_order_header_data` (`ProductionOrder`),
     CONSTRAINT `DataPlatformProductionOrderHeaderDocDataDocType_fk` FOREIGN KEY (`DocType`) REFERENCES `data_platform_doc_type_doc_type_data` (`DocType`),
     CONSTRAINT `DataPlatformProductionOrderHeaderDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
-
+    
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

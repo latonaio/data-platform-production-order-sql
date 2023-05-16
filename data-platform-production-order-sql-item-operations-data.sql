@@ -1,13 +1,12 @@
-CREATE TABLE `data_platform_production_order_operation_data`
+CREATE TABLE `data_platform_production_order_item_operations_data`
 (
 		`ProductionOrder`                         int(16) NOT NULL,
 		`ProductionOrderItem`                     int(6) NOT NULL,
-		`ProductionOrderSequence`                 varchar(4) NOT NULL,
-		`ProductionOrderOperation`                varchar(4) NOT NULL,
-		`OrderInternalBillOfOperations`           varchar(4) NOT NULL,
-        `OrderIntBillOfOperationsItem`            int(6) NOT NULL,
-		`ProductionOrderSequenceText`             varchar(200) DEFAULT NULL,
-		`ProductionOrderOperationText`            varchar(200) DEFAULT NULL,
+		`Operations`  		                      int(16) NOT NULL,
+        `OperationsItem`	                      int(6) NOT NULL,
+        `Sequence`			                      int(4) NOT NULL,
+		`OperationsText`           			      varchar(200) DEFAULT NULL,
+		`SequenceText`				              varchar(200) DEFAULT NULL,
         `OperationIsReleased`                     tinyint(1) DEFAULT NULL,
         `OperationIsPartiallyConfirmed`           tinyint(1) DEFAULT NULL,
         `OperationIsConfirmed`                    tinyint(1) DEFAULT NULL,
@@ -17,7 +16,7 @@ CREATE TABLE `data_platform_production_order_operation_data`
 		`WorkCenter`                              int(16) DEFAULT NULL,
 		`OperationErlstSchedldExecStrtDte`        date DEFAULT NULL,
    		`OperationErlstSchedldExecStrtTme`        time DEFAULT NULL,
-		`OperationErlstSchedldExecEndDte`         date DEFAULT NULL,
+		`OperationErlstSchedldExecEndDate`         date DEFAULT NULL,
    		`OperationErlstSchedldExecEndTme`         time DEFAULT NULL,
 		`OperationActualExecutionStartDate`       date DEFAULT NULL,
    		`OperationActualExecutionStartTime`       time DEFAULT NULL,
@@ -29,11 +28,11 @@ CREATE TABLE `data_platform_production_order_operation_data`
 		`OperationPlannedTotalQuantity`           float(15) DEFAULT NULL,
 		`OperationTotalConfirmedYieldQuantity`    float(15) DEFAULT NULL,
   
-    PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `ProductionOrderSequence`, `ProductionOrderOperation`, `OrderInternalBillOfOperations`, `OrderIntBillOfOperationsItem`),
+    PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`),
 	
-    CONSTRAINT `DataPlatformProductionOrderOperationData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
-    CONSTRAINT `DataPlatformProductionOrderOperationDataComponentProductionPlant_fk` FOREIGN KEY (`ProductionPlant`) REFERENCES `data_platform_plant_general_data` (`Plant`),
-    CONSTRAINT `DataPlatformProductionOrderOperationDataComponentProductionWorkCenter_fk` FOREIGN KEY (`WorkCenter`) REFERENCES `data_platform_work_center_header_data` (`WorkCenter`)
-
+    CONSTRAINT `DataPlatformProductionOrderItemOperationsData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
+    CONSTRAINT `DataPlatformProductionOrderItemOperationsDataComponentProductionPlant_fk` FOREIGN KEY (`ProductionPlant`) REFERENCES `data_platform_plant_general_data` (`Plant`),
+    CONSTRAINT `DataPlatformProductionOrderItemOperationsDataComponentProductionWorkCenter_fk` FOREIGN KEY (`WorkCenter`) REFERENCES `data_platform_work_center_header_data` (`WorkCenter`)
+	
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

@@ -16,7 +16,7 @@ CREATE TABLE `data_platform_production_order_header_data`
         `MRPArea`                                 varchar(10) DEFAULT NULL,
         `MRPController`                           varchar(3) DEFAULT NULL,
         `ProductionSupervisor`                    varchar(100) DEFAULT NULL,
-        `ProductionVersion`                       varchar(4) DEFAULT NULL,
+        `ProductionVersion`                       int(16) DEFAULT NULL,
 		`PlannedOrder`                            int(16) DEFAULT NULL,
 		`OrderID`                                 int(16) DEFAULT NULL,
 		`OrderItem`                               int(6) DEFAULT NULL,
@@ -43,6 +43,6 @@ CREATE TABLE `data_platform_production_order_header_data`
     CONSTRAINT `DataPlatformProductionOrderHeaderDataProductionStorageLocation_fk` FOREIGN KEY (`OwnerProductionPlantBusinessPartner`, `OwnerProductionPlant`, `OwnerProductionPlantStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
     CONSTRAINT `DataPlatformProductionOrderHeaderDataProductionPlannedOrder_fk` FOREIGN KEY (`PlannedOrder`) REFERENCES `data_platform_planned_order_header_data` (`PlannedOrder`),
     CONSTRAINT `DataPlatformProductionOrderHeaderDataProductionOrder_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`),
-
+    
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

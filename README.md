@@ -11,12 +11,13 @@ https://api.XXXXXXXX.com/api/OP_API_XXXXXXX_XXX/overview
 data-platform-production-order-sql には、sqlの設定ファイルとして、以下のファイルが含まれています。  
 
 * data-platform-production-order-sql-header-data.sql（データ連携基盤 製造指図 - ヘッダデータ）
-* data-platform-production-order-sql-header-doc-data.sql（データ連携基盤 設備マスタ - 基本文書データ）
-* data-platform-production-order-sql-item-data.sql（データ連携基盤 設備マスタ - 明細データ）
-* data-platform-production-order-sql-component-data.sql（データ連携基盤 製造指図 - 構成品目データ）
-* data-platform-production-order-sql-component-stock-confirmation-data.sql（データ連携基盤 製造指図 - 構成品目在庫確認データ）
-* data-platform-production-order-sql-component-costing-data.sql（データ連携基盤 製造指図 - 構成品目原価計算データ）
-* data-platform-production-order-sql-operation-data.sql（データ連携基盤 製造指図 - 作業データ）
+* data-platform-production-order-sql-header-doc-data.sql（データ連携基盤 製造指図 - ヘッダ文書データ）
+* data-platform-production-order-sql-item-data.sql（データ連携基盤 製造指図 - 明細データ）
+* data-platform-production-order-sql-item-doc-data.sql（データ連携基盤 製造指図 - 明細文書データ）
+* data-platform-production-order-sql-item-component-data.sql（データ連携基盤 製造指図 - 明細構成品目データ）
+* data-platform-production-order-sql-item-component-stock-confirmation-data.sql（データ連携基盤 製造指図 - 明細構成品目在庫確認データ）
+* data-platform-production-order-sql-item-component-costing-data.sql（データ連携基盤 製造指図 - 明細構成品目原価計算データ）
+* data-platform-production-order-sql-item-operations-data.sql（データ連携基盤 製造指図 - 明細作業手順データ）
 
 ## MySQLのセットアップ / Kubernetesの設定 / SQLテーブルの作成方法
 
