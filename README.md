@@ -17,8 +17,9 @@ data-platform-production-order-sql には、sqlの設定ファイルとして、
 * data-platform-production-order-sql-item-component-data.sql（データ連携基盤 製造指図 - 明細構成品目データ）
 * data-platform-production-order-sql-item-component-delivery-schedule-line-data.sql（データ連携基盤 製造指図 - 明細構成品目納入日程行データ）
 * data-platform-production-order-sql-item-component-costing-data.sql（データ連携基盤 製造指図 - 明細構成品目原価計算データ）
-* data-platform-production-order-sql-item-operations-data.sql（データ連携基盤 製造指図 - 明細作業手順データ）
-* data-platform-production-order-sql-item-operations-costing-data.sql（データ連携基盤 製造指図 - 明細作業手順原価計算データ）
+* data-platform-production-order-sql-item-operation-data.sql（データ連携基盤 製造指図 - 明細作業データ）
+* data-platform-production-order-sql-item-operation-component-data.sql（データ連携基盤 製造指図 - 明細作業構成品目データ）
+* data-platform-production-order-sql-item-operation-costing-data.sql（データ連携基盤 製造指図 - 明細作業原価計算データ）
 * data-platform-production-order-sql-partner-data.sql（データ連携基盤 製造指図 - 取引先データ）
 * data-platform-production-order-sql-address-data.sql（データ連携基盤 製造指図 - 住所データ）
 
