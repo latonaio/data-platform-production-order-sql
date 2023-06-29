@@ -39,10 +39,10 @@ CREATE TABLE `data_platform_production_order_item_component_delivery_schedule_li
 
     PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`, `ScheduleLine`),
 	
-    CONSTRAINT `DataPlatformProductionOrderItemComponentDeliveryScheduleLineData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_order_component_data` (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `BillOfMaterial`, `BillOfMaterialItem`),
-    CONSTRAINT `DataPlatformProductionOrderItemComponentDeliveryScheduleLineDataComponentProduct_fk`OREIGN KEY (`ComponentProduct`, `StockConfirmationPlantBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
-    CONSTRAINT `DataPlatformProductionOrderItemComponentDeliveryScheduleLineDataStockConfirmationPlantTimeZone_fk` FOREIGN KEY (`StockConfirmationPlantTimeZone`) REFERENCES `data_platform_time_zone_time_zone_data` (`TimeZone`),
-    CONSTRAINT `DataPlatformProductionOrderItemComponentDeliveryScheduleLineDataComponentProductBatch_fk` FOREIGN KEY (`ComponentProduct`, `StockConfirmationPlantBusinessPartner`, `StockConfirmationPlant`, `ComponentProductBatch`) REFERENCES `data_platform_batch_master_record_batch_data` (`Product`, `BusinessPartner`, `Plant`, `Batch`)
+    CONSTRAINT `DPFMProductionOrderItemComponentDeliveryScheduleLineData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_order_component_data` (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `BillOfMaterial`, `BillOfMaterialItem`),
+    CONSTRAINT `DPFMProductionOrderItemComponentDeliveryScheduleLineDataComponentProduct_fk`OREIGN KEY (`ComponentProduct`, `StockConfirmationPlantBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
+    CONSTRAINT `DPFMProductionOrderItemComponentDeliveryScheduleLineDataStockConfirmationPlantTimeZone_fk` FOREIGN KEY (`StockConfirmationPlantTimeZone`) REFERENCES `data_platform_time_zone_time_zone_data` (`TimeZone`),
+    CONSTRAINT `DPFMProductionOrderItemComponentDeliveryScheduleLineDataComponentProductBatch_fk` FOREIGN KEY (`ComponentProduct`, `StockConfirmationPlantBusinessPartner`, `StockConfirmationPlant`, `ComponentProductBatch`) REFERENCES `data_platform_batch_master_record_batch_data` (`Product`, `BusinessPartner`, `Plant`, `Batch`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

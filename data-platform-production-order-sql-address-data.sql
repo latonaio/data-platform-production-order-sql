@@ -14,8 +14,8 @@ CREATE TABLE `data_platform_production_order_address_data`
     
     PRIMARY KEY (`ProductionOrder`, `AddressID`),
     
-    CONSTRAINT `DataPlatformProductionOrderAddressData_fk` FOREIGN KEY (`ProductionOrder`) REFERENCES `data_platform_production_order_header_data` (`ProductionOrder`),
-    CONSTRAINT `DataPlatformProductionOrderAddressDataAddressID_fk` FOREIGN KEY (`AddressID`) REFERENCES `data_platform_address_address_data` (`AddressID`)
+    CONSTRAINT `DPFMProductionOrderAddressData_fk` FOREIGN KEY (`ProductionOrder`) REFERENCES `data_platform_production_order_header_data` (`ProductionOrder`),
+    CONSTRAINT `DPFMProductionOrderAddressDataAddressID_fk` FOREIGN KEY (`AddressID`) REFERENCES `data_platform_address_address_data` (`AddressID`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

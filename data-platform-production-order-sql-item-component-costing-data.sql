@@ -17,8 +17,8 @@ CREATE TABLE `data_platform_production_order_item_component_costing_data`
 
     PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`),
 	
-    CONSTRAINT `DataPlatformProductionOrderItemComponentCostingData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_order_item_component_data` (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`),
-    CONSTRAINT `DataPlatformProductionOrderItemComponentCostingDataCurrency_fk` FOREIGN KEY (`Currency`) REFERENCES `data_platform_currency_currency_data` (`Currency`)    
+    CONSTRAINT `DPFMProductionOrderItemComponentCostingData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_order_item_component_data` (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`),
+    CONSTRAINT `DPFMProductionOrderItemComponentCostingDataCurrency_fk` FOREIGN KEY (`Currency`) REFERENCES `data_platform_currency_currency_data` (`Currency`)    
     
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

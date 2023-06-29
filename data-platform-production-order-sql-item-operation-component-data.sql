@@ -48,8 +48,8 @@ CREATE TABLE `data_platform_production_order_item_operation_component_data`
 
     PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`, `BillOfMaterial`, `BillOfMaterialItem`),
 
-    CONSTRAINT `DataPlatformProductionOrderItemOperationComponentData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`) REFERENCES `data_platform_production_order_item_operation_data` (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`),
-    CONSTRAINT `DataPlatformProductionOrderItemOperationComponentDataBOMItem_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_order_item_component_data` (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`)
+    CONSTRAINT `DPFMProductionOrderItemOperationComponentData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`) REFERENCES `data_platform_production_order_item_operation_data` (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`),
+    CONSTRAINT `DPFMProductionOrderItemOperationComponentDataBOMItem_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_order_item_component_data` (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
