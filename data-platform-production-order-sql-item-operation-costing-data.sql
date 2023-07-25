@@ -6,7 +6,7 @@ CREATE TABLE `data_platform_production_order_item_operation_costing_data`
 		`OperationsItem`                          int(6) NOT NULL,
 		`OperationID`                             int(4) NOT NULL,
         `Currency`                                varchar(3) NOT NULL,
-        `CostingAmount`                           float(13) DEFAULT NULL,
+        `CostingAmount`                           float(13) NOT NULL,
 		`CreationDate`                            date NOT NULL,
 		`CreationTime`                            time NOT NULL,
 		`LastChangeDate`                          date NOT NULL,

@@ -29,13 +29,12 @@ CREATE TABLE `data_platform_production_order_item_component_data`
         `ComponentProductRequiredQuantityInDeliveryUnit`   float(15) NOT NULL,
         `ComponentProductPlannedScrapInPercent`            float(7) DEFAULT NULL,
     	`ComponentProductIsMarkedForBackflush`             tinyint(1) DEFAULT NULL,
-        `BillOfMaterialItemText`                           varchar(200) DEFAULT NULL,
         `StockConfirmationBusinessPartner`                 int(12) NOT NULL,
         `StockConfirmationPlant`                           varchar(4) NOT NULL,
         `StockConfirmationPlantStorageLocation`            varchar(4) NOT NULL,
 		`PlannedOrder`                                     int(16) DEFAULT NULL,
 		`PlannedOrderItem`                                 int(6) DEFAULT NULL,
-		`BOMItemDescription`                               varchar(200) DEFAULT NULL,
+		`BillOfMaterialItemText`                           varchar(200) DEFAULT NULL,
         `ComponentProductBatch`                            varchar(10) DEFAULT NULL,
         `ComponentProductBatchValidityStartDate`           date DEFAULT NULL,
         `ComponentProductBatchValidityStartTime`           time DEFAULT NULL,
@@ -56,7 +55,7 @@ CREATE TABLE `data_platform_production_order_item_component_data`
     	`IsCancelled`                                      tinyint(1) DEFAULT NULL,
         `IsMarkedForDeletion`                              tinyint(1) DEFAULT NULL,
 
-    PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `BillOfMaterial`, `BillOfMaterialItem`),
+    PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`),
 	
     CONSTRAINT `DPFMProductionOrderItemComponentData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataOperations_fk` FOREIGN KEY (`Operations`, `OperationsItem`) REFERENCES `data_platform_operations_item_data` (`Operations`, `OperationsItem`),

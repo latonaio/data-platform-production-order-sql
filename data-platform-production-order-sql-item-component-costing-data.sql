@@ -5,7 +5,7 @@ CREATE TABLE `data_platform_production_order_item_component_costing_data`
 		`BillOfMaterial`                          int(16) NOT NULL,
 		`BillOfMaterialItem`                      int(4) NOT NULL,
         `Currency`                                varchar(3) NOT NULL,
-        `CostingAmount`                           float(13) DEFAULT NULL,
+        `CostingAmount`                           float(13) NOT NULL,
 		`CreationDate`                            date NOT NULL,
 		`CreationTime`                            time NOT NULL,
 		`LastChangeDate`                          date NOT NULL,
