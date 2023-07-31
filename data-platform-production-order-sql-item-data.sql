@@ -68,7 +68,6 @@ CREATE TABLE `data_platform_production_order_item_data`
 		`CreationTime`                                   time NOT NULL,
 		`LastChangeDate`                                 date NOT NULL,
 		`LastChangeTime`                                 time NOT NULL,
-    	`ComponentProductAvailabilityIsNotChecked`       tinyint(1) DEFAULT NULL,
     	`IsReleased`                  		  	         tinyint(1) DEFAULT NULL,
     	`IsPartiallyConfirmed`                           tinyint(1) DEFAULT NULL,
     	`IsConfirmed`                                    tinyint(1) DEFAULT NULL,

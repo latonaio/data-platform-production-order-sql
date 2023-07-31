@@ -56,14 +56,14 @@ CREATE TABLE `data_platform_production_order_item_component_data`
         `IsMarkedForDeletion`                              tinyint(1) DEFAULT NULL,
 
     PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `BillOfMaterial`, `BillOfMaterialItem`),
-	
+    
     CONSTRAINT `DPFMProductionOrderItemComponentData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
-    CONSTRAINT `DPFMProductionOrderItemComponentDataOperations_fk` FOREIGN KEY (`Operations`, `OperationsItem`) REFERENCES `data_platform_operations_item_data` (`Operations`, `OperationsItem`),
+--     CONSTRAINT `DPFMProductionOrderItemComponentDataOperations_fk` FOREIGN KEY (`Operations`, `OperationsItem`) REFERENCES `data_platform_operations_item_data` (`Operations`, `OperationsItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataBillOfMaterial_fk` FOREIGN KEY (`BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_bill_of_material_item_data` (`BillOfMaterial`, `BillOfMaterialItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataPlant_fk` FOREIGN KEY (`ComponentProduct`, `BusinessPartner`, `Plant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataProductionVersion_fk` FOREIGN KEY (`ProductionVersion`, `ProductionVersionItem`) REFERENCES `data_platform_production_version_item_data` (`ProductionVersion`, `ProductionVersionItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataStockConfirmationPlant_fk` FOREIGN KEY (`ComponentProduct`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
-    CONSTRAINT `DPFMProductionOrderItemComponentDataComponentProductReservation_fk` FOREIGN KEY (`Reservation`, `ReservationItem`) REFERENCES `data_platform_reservation_document_item_data` (`Reservation`, `ReservationItem`),
+    -- CONSTRAINT `DPFMProductionOrderItemComponentDataComponentProductReservation_fk` FOREIGN KEY (`Reservation`, `ReservationItem`) REFERENCES `data_platform_reservation_document_item_data` (`Reservation`, `ReservationItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataPlannedOrder_fk` FOREIGN KEY (`PlannedOrder`, `PlannedOrderItem`) REFERENCES `data_platform_planned_order_item_data` (`PlannedOrder`, `PlannedOrderItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataOrderItem_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`),
     CONSTRAINT `DPFMProductionOrderItemComponentDataProductionPlantStorageLocation_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`, `ProductionPlant`, `ProductionPlantStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
