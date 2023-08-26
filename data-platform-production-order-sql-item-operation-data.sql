@@ -5,11 +5,12 @@ CREATE TABLE `data_platform_production_order_item_operation_data`
       `Operations`                                        int(16) NOT NULL,
       `OperationsItem`	                                  int(6) NOT NULL,
       `OperationID`                                       int(4) NOT NULL,
+      `OperationType`                                     varchar(4) NOT NULL,
       `SupplyChainRelationshipID`                         int(16) NOT NULL,
       `SupplyChainRelationshipDeliveryID`                 int(6) NOT NULL,
       `SupplyChainRelationshipDeliveryPlantID`            int(4) NOT NULL,
       `SupplyChainRelationshipProductionPlantID`          int(4) NOT NULL,
-      `Product`                                           varchar(40) NOT NULL, 
+      `Product`                                           varchar(40) NOT NULL,
       `Buyer`                                             int(12) NOT NULL,
       `Seller`                                            int(12) NOT NULL,
       `DeliverFromParty`                                  int(12) NOT NULL,
@@ -81,14 +82,15 @@ CREATE TABLE `data_platform_production_order_item_operation_data`
       `IsLocked`                                          tinyint(1) DEFAULT NULL,
       `IsCancelled`                                       tinyint(1) DEFAULT NULL,
       `IsMarkedForDeletion`                               tinyint(1) DEFAULT NULL,
-  
+
     PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`),
-	
+
     CONSTRAINT `DPFMProductionOrderItemOperationData_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
+    CONSTRAINT `DPFMProductionOrderItemOperationDataOperationID_fk` FOREIGN KEY (`Operations`, `OperationsItem`, `OperationID`) REFERENCES `data_platform_operations_item_operation_data` (`Operations`, `OperationsItem`, `OperationID`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataSCRID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataSCRDeliveryID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_scr_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
-    CONSTRAINT `DPFMProductionOrderItemOperationDataSCRDeliveryPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`) REFERENCES `data_platform_scr_delivery_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
-    CONSTRAINT `DPFMProductionOrderItemOperationDataSCRProductionPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`) REFERENCES `data_platform_scr_production_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`),
+--     CONSTRAINT `DPFMProductionOrderItemOperationDataSCRDeliveryPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`) REFERENCES `data_platform_scr_delivery_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
+--     CONSTRAINT `DPFMProductionOrderItemOperationDataSCRProductionPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`) REFERENCES `data_platform_scr_production_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataProductionVersionItem_fk` FOREIGN KEY (`ProductionVersion`, `ProductionVersionItem`) REFERENCES `data_platform_production_version_item_data` (`ProductionVersion`, `ProductionVersionItem`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataProductBaseUnit_fk` FOREIGN KEY (`ProductBaseUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataProductProductionUnit_fk` FOREIGN KEY (`ProductProductionUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
@@ -98,7 +100,7 @@ CREATE TABLE `data_platform_production_order_item_operation_data`
     CONSTRAINT `DPFMProductionOrderItemOperationDataWaitDurationUnit_fk` FOREIGN KEY (`WaitDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataQueueDurationUnit_fk` FOREIGN KEY (`QueueDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DPFMProductionOrderItemOperationDataMoveDurationUnit_fk` FOREIGN KEY (`MoveDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
-    CONSTRAINT `DPFMProductionOrderItemOperationDataStandardDeliveryDurationUnit_fk` FOREIGN KEY (`StandardDeliveryDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
-	
+    CONSTRAINT `DPFMProductionOrderItemOperationDataStandardDDUnit_fk` FOREIGN KEY (`StandardDeliveryDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

@@ -3,7 +3,7 @@ CREATE TABLE `data_platform_production_order_item_data`
 		`ProductionOrder`                                int(16) NOT NULL,
     	`ProductionOrderItem`                            int(6) NOT NULL,
         `PrecedingProductionOrderItem`                   int(6) DEFAULT NULL,
-      　`FollowingProductionOrderItem`                   int(6) DEFAULT NULL,
+        `FollowingProductionOrderItem`                   int(6) DEFAULT NULL,
 		`SupplyChainRelationshipID`                      int(16) NOT NULL,
 		`SupplyChainRelationshipProductionPlantID`       int(4) NOT NULL,
 		`SupplyChainRelationshipDeliveryID`              int(6) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `data_platform_production_order_item_data`
 		`ProductionOrderQuantityInProductionUnit`  	     float(15) NOT NULL,
 		`ProductionOrderQuantityInDeliveryUnit`          float(15) NOT NULL,
 		`ProductionOrderPlannedScrapQtyInBaseUnit`		 float(15) DEFAULT NULL,
-      　`ProductionOrderMinimumLotSizeQuantity`          float(15) NOT NULL,
+		`ProductionOrderMinimumLotSizeQuantity`          float(15) NOT NULL,
         `ProductionOrderStandardLotSizeQuantity`         float(15) NOT NULL,
         `ProductionOrderMaximumLotSizeQuantity`          float(15) NOT NULL,
         `ProductionOrderLotSizeRoundingQuantity`         float(15) DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `data_platform_production_order_item_data`
 		`PlannedOrder`                                   int(16) DEFAULT NULL,
 		`PlannedOrderItem`                               int(6) DEFAULT NULL,
 		`OrderID`                                        int(16) DEFAULT NULL,
-		`OrderItem`                                      int(6) DEFAULT NULL,     
+		`OrderItem`                                      int(6) DEFAULT NULL,
         `ProductIsBatchManagedInProductionPlant`         tinyint(1) DEFAULT NULL,
         `BatchMgmtPolicyInProductionOrder`               varchar(4) DEFAULT NULL,
         `ProductionOrderTargetedBatch`                   varchar(10) DEFAULT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE `data_platform_production_order_item_data`
     	`IsMarkedForDeletion`                            tinyint(1) DEFAULT NULL,
 
     PRIMARY KEY (`ProductionOrder`, `ProductionOrderItem`),
-	
+
     CONSTRAINT `DPFMProductionOrderItemData_fk` FOREIGN KEY (`ProductionOrder`) REFERENCES `data_platform_production_order_header_data` (`ProductionOrder`),
     CONSTRAINT `DPFMProductionOrderItemDataSCRID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
 	CONSTRAINT `DPFMProductionOrderItemDataSCRProductionPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`) REFERENCES `data_platform_scr_production_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`),
