@@ -1,4 +1,5 @@
-CREATE TABLE `data_platform_production_order_item_component_delivery_schedule_line_data`
+-- CREATE TABLE `data_platform_production_order_item_component_delivery_schedule_line_data`
+--おそらくテーブル名長い
 (
 		`ProductionOrder`                                 int(16) NOT NULL,
      	`ProductionOrderItem`                             int(6) NOT NULL,
