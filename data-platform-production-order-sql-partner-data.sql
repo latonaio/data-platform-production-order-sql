@@ -11,6 +11,7 @@ CREATE TABLE `data_platform_production_order_partner_data`
     `Currency`                        varchar(5) DEFAULT NULL,
     `ExternalDocumentID`              varchar(40) DEFAULT NULL,
     `AddressID`                       int(12) DEFAULT NULL,
+    `EmailAddress`                    varchar(200) DEFAULT NULL,
     
     PRIMARY KEY (`ProductionOrder`, `PartnerFunction`, `BusinessPartner`),
     
