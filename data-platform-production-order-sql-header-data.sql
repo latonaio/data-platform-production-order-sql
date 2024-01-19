@@ -1,6 +1,7 @@
 CREATE TABLE `data_platform_production_order_header_data`
 (
 		`ProductionOrder`                            			int(16) NOT NULL,
+		`ProductionOrderDate`                         			date NOT NULL,
 		`SupplyChainRelationshipID`                  			int(16) NOT NULL,
 		`SupplyChainRelationshipProductionPlantID`   			int(4) NOT NULL,
 		`SupplyChainRelationshipDeliveryID`          			int(6) NOT NULL,
@@ -48,6 +49,8 @@ CREATE TABLE `data_platform_production_order_header_data`
 		`OrderID`                                   			int(16) DEFAULT NULL,
 		`OrderItem`                                  			int(6) DEFAULT NULL,
         `ProductionOrderHeaderText`                  			varchar(200) DEFAULT NULL,
+  		`CertificateAuthorityChain`      						varchar(2000) DEFAULT NULL,
+  		`UsageControlChain`              						varchar(2000) DEFAULT NULL,
 		`CreationDate`                               			date NOT NULL,
 		`CreationTime`                               			time NOT NULL,
 		`LastChangeDate`                             			date NOT NULL,

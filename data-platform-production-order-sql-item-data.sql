@@ -2,6 +2,7 @@ CREATE TABLE `data_platform_production_order_item_data`
 (
 		`ProductionOrder`                                int(16) NOT NULL,
     	`ProductionOrderItem`                            int(6) NOT NULL,
+		`ProductionOrderItemDate`						 date NOT NULL,
         `PrecedingProductionOrderItem`                   int(6) DEFAULT NULL,
         `FollowingProductionOrderItem`                   int(6) DEFAULT NULL,
 		`SupplyChainRelationshipID`                      int(16) NOT NULL,
